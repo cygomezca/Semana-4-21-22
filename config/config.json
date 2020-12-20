@@ -1,8 +1,8 @@
 {
     "development": {
-        "username": "0dCRbC3jJO",
-        "password": "WMYUSIWnDm",
-        "database": "0dCRbC3jJO",
+        "username": "WyH0uyHU7K",
+        "password": "iXJphb26hT",
+        "database": "WyH0uyHU7K",
         "host": "remotemysql.com",
         "dialect": "mysql",
         "port": "3306"

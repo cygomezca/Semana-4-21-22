@@ -2,6 +2,7 @@ const { Usuario } = require('../models/');
 const bcrypt = require('bcryptjs')
 const servtoken = require('../services/token')
 
+
 module.exports=
     {    
         register : async (req, res, next) => {
@@ -31,7 +32,7 @@ module.exports=
                     if (contrasenhaValida)
                     {
                         const token = servtoken.encode(user.id, user.rol)
-    
+                        
                         res.status(200).send({
                             auth : true,
                             tokenReturn : token,

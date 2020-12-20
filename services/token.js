@@ -1,21 +1,28 @@
-var jwt = require('jsonwebtoken');
+
+const jwt = require('jsonwebtoken')
 const models = require('../models');
 
 
 module.exports = {
 
     //generar el token
-    encode: async(id, rol) => {
+    encode: (ide, role) => {
+
+
         try {
             
             const token = jwt.sign( {
-                id: id,
-                rol: rol,
+                id:ide,
+                rol: role,
             }, 'mipalabrasecreta', {
                 expiresIn : 3600
             } )
-            return token
-        } catch (error) {
+            
+        return (token)
+        
+        } 
+        catch (error)
+         {
             return null
         }
     },
