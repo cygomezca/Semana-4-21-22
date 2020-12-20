@@ -7,13 +7,5 @@
         "dialect": "mysql",
         "port": "3306"
 
-    },
-    "test": {
-        "dialect": "sqlite",
-        "storage": "./database.sqlite3"
-    },
-    "development": {
-        "dialect": "sqlite",
-        "storage": "./database.sqlite3"
     }
 }
