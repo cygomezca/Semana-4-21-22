@@ -1,11 +1,10 @@
 {
-    "production": {
+    "development": {
         "username": "WyH0uyHU7K",
         "password": "iXJphb26hT",
         "database": "0dCRbC3jJO",
         "host": "remotemysql.com",
         "dialect": "mysql",
         "port": "3306"
-
     }
 }

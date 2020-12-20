@@ -5,7 +5,6 @@ const auth = require('../middlewares/auth');
 
 const router = routerx();
 
-
 router.get('/list', categoriaController.list);
 router.post('/add', categoriaController.add);
 router.put('/update', categoriaController.update);
