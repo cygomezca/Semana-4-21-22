@@ -8,7 +8,6 @@ module.exports = {
     //generar el token
     encode: (ide, role) => {
 
-
         try {
             
             const token = jwt.sign( {
