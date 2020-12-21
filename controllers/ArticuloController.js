@@ -1,11 +1,17 @@
-const { Articulo } = require('../models/');
+const { Articulo, Categoria } = require('../models/');
 
 module.exports =
     {    
         list  : async (req, res, next) => {
 
             try {
-                const art = await Articulo.findAll();
+                const art = await Articulo.findAll({
+
+                    include: [{
+                        model : Categoria,
+                        as: 'categoria'
+                    }]
+                });
                 res.status(200).json(art)
                 
             } catch (error) {
