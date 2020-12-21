@@ -6,10 +6,12 @@ const auth = require('../middlewares/auth');
 const router = routerx();
 
 
-router.post('/register', usuarioController.register);
+router.post('/add', usuarioController.add);
 router.post('/login', usuarioController.login);
 router.get('/list', usuarioController.list);
 router.put('/update', usuarioController.update);
+router.put('/activate', usuarioController.activate);
+router.put('/deactivate', usuarioController.deactivate);
 
 
 

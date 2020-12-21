@@ -5,7 +5,7 @@ const servtoken = require('../services/token')
 
 module.exports=
     {    
-        register : async (req, res, next) => {
+        add : async (req, res, next) => {
             try{
                 const email = await Usuario.findOne( { where :  { email : req.body.email } } )
                 if(email){
@@ -65,19 +65,42 @@ module.exports=
 
             try {
                 //Encontrando usuario
-                const userbeta = await Usuario.findOne( { where :  { email : req.body.email } } );
+                const userbeta = await Usuario.findOne( { where :  { id : req.body.id } } );
                 
                 //validando clave
                 const valida = bcrypt.compareSync(req.body.password, userbeta.password)
                 if(valida)
                 {
                     
-                const newpassword = bcrypt.hashSync(req.body.newpassword, 10);
-                const user = await Usuario.update( {nombre: req.body.nombre, estado: req.body.estado, password: newpassword},{ where: {email : req.body.email} });
+                //const newpassword = bcrypt.hashSync(req.body.newpassword, 10);
+                const user = await Usuario.update( {nombre: req.body.nombre, rol: req.body.rol, password: req.body.password, email: req.body.email},{ where: {id : req.body.id} });
                 res.status(200).json(user)
                 }else{
 
                 }
+                
+            } catch (error) {
+                res.status(500).json({ 'error' : 'Oops paso algo' })
+            next(error)
+            }
+            
+        },
+        activate  : async (req, res, next) => {
+            
+            try {
+                const user = await Usuario.update( {estado: 1},{ where: {id : req.body.id} });
+                res.status(200).json(user)
+                
+            } catch (error) {
+                res.status(500).json({ 'error' : 'Oops paso algo' })
+            next(error)
+            }
+        },
+        deactivate  : async (req, res, next) => {
+
+            try {
+                const user = await Usuario.update( {estado: 0},{ where: {id : req.body.id} });
+                res.status(200).json(user)
                 
             } catch (error) {
                 res.status(500).json({ 'error' : 'Oops paso algo' })
